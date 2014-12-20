@@ -36,6 +36,9 @@
             this.Compose_B = new System.Windows.Forms.Button();
             this.Welcome_L = new System.Windows.Forms.Label();
             this.exit_b = new System.Windows.Forms.Button();
+            this.allMessages_B = new System.Windows.Forms.Button();
+            this.allUsers_B = new System.Windows.Forms.Button();
+            this.profile_B = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Logout_B
@@ -117,11 +120,46 @@
             this.exit_b.UseVisualStyleBackColor = true;
             this.exit_b.Click += new System.EventHandler(this.exit_b_Click);
             // 
+            // allMessages_B
+            // 
+            this.allMessages_B.Location = new System.Drawing.Point(12, 186);
+            this.allMessages_B.Name = "allMessages_B";
+            this.allMessages_B.Size = new System.Drawing.Size(90, 23);
+            this.allMessages_B.TabIndex = 8;
+            this.allMessages_B.Text = "All Messages";
+            this.allMessages_B.UseVisualStyleBackColor = true;
+            this.allMessages_B.Visible = false;
+            this.allMessages_B.Click += new System.EventHandler(this.allMessages_B_Click);
+            // 
+            // allUsers_B
+            // 
+            this.allUsers_B.Location = new System.Drawing.Point(12, 215);
+            this.allUsers_B.Name = "allUsers_B";
+            this.allUsers_B.Size = new System.Drawing.Size(90, 23);
+            this.allUsers_B.TabIndex = 9;
+            this.allUsers_B.Text = "All Users";
+            this.allUsers_B.UseVisualStyleBackColor = true;
+            this.allUsers_B.Visible = false;
+            this.allUsers_B.Click += new System.EventHandler(this.allUsers_B_Click);
+            // 
+            // profile_B
+            // 
+            this.profile_B.Location = new System.Drawing.Point(12, 157);
+            this.profile_B.Name = "profile_B";
+            this.profile_B.Size = new System.Drawing.Size(90, 23);
+            this.profile_B.TabIndex = 10;
+            this.profile_B.Text = "Edit Profile";
+            this.profile_B.UseVisualStyleBackColor = true;
+            this.profile_B.Click += new System.EventHandler(this.profile_B_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(397, 262);
+            this.Controls.Add(this.profile_B);
+            this.Controls.Add(this.allUsers_B);
+            this.Controls.Add(this.allMessages_B);
             this.Controls.Add(this.exit_b);
             this.Controls.Add(this.Welcome_L);
             this.Controls.Add(this.Compose_B);
@@ -147,5 +185,8 @@
         private System.Windows.Forms.Button Compose_B;
         private System.Windows.Forms.Label Welcome_L;
         private System.Windows.Forms.Button exit_b;
+        private System.Windows.Forms.Button allMessages_B;
+        private System.Windows.Forms.Button allUsers_B;
+        private System.Windows.Forms.Button profile_B;
     }
 }

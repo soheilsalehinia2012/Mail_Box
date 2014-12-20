@@ -55,6 +55,7 @@
             this.search_B.TabIndex = 33;
             this.search_B.Text = "Search";
             this.search_B.UseVisualStyleBackColor = true;
+            this.search_B.Click += new System.EventHandler(this.search_B_Click);
             // 
             // to_DTP
             // 
@@ -120,6 +121,7 @@
             this.searchBy_CB.Name = "searchBy_CB";
             this.searchBy_CB.Size = new System.Drawing.Size(121, 21);
             this.searchBy_CB.TabIndex = 26;
+            this.searchBy_CB.SelectedIndexChanged += new System.EventHandler(this.searchBy_CB_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -138,6 +140,7 @@
             this.showall_B.TabIndex = 24;
             this.showall_B.Text = "Show All";
             this.showall_B.UseVisualStyleBackColor = true;
+            this.showall_B.Click += new System.EventHandler(this.showall_B_Click);
             // 
             // label1
             // 
@@ -200,6 +203,7 @@
             this.InboxTrash_DGV.Name = "InboxTrash_DGV";
             this.InboxTrash_DGV.Size = new System.Drawing.Size(512, 403);
             this.InboxTrash_DGV.TabIndex = 17;
+            this.InboxTrash_DGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InboxTrash_DGV_CellClick);
             // 
             // Inbox_Trash
             // 

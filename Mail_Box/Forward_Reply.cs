@@ -30,8 +30,9 @@ namespace Mail_Box
         {
             this.Hide();
             Inbox i = new Inbox();
-            i.ShowDialog();
-            this.Close();
+            try { i.ShowDialog(); }
+            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+            finally { this.Close(); }
         }
 
         private void forward_B_Click(object sender, EventArgs e)
@@ -55,8 +56,9 @@ namespace Mail_Box
                     MessageBox.Show("Message Forwarded to " + forward_CB.Text);
                     this.Hide();
                     Inbox i = new Inbox();
-                    i.ShowDialog();
-                    this.Close();
+                    try { i.ShowDialog(); }
+                    catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                    finally { this.Close(); }
                 }
                 catch (SqlException ex) { Console.WriteLine(ex.Message); }
                 finally { conn.Close(); }
@@ -67,8 +69,9 @@ namespace Mail_Box
         {
             this.Hide();
             Compose c = new Compose(senderuser,subject);
-            c.ShowDialog();
-            this.Close();
+            try { c.ShowDialog(); }
+            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+            finally { this.Close(); }
         }
 
         private void showComboBox()

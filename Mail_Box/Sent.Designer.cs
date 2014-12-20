@@ -153,11 +153,11 @@
             this.searchBy_CB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.searchBy_CB.FormattingEnabled = true;
             this.searchBy_CB.Items.AddRange(new object[] {
-            "Sender",
+            "Receiver",
             "Subject",
             "Message",
-            "Sender Name",
-            "Sender FName",
+            "Receiver Name",
+            "Receiver FName",
             "Date",
             "From..To Date"});
             this.searchBy_CB.Location = new System.Drawing.Point(263, 438);

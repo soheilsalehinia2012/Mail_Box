@@ -74,8 +74,9 @@ namespace Mail_Box
                 MessageBox.Show("your sent is empty!!!", "Empty sent");
                 this.Hide();
                 Main m = new Main();
-                m.ShowDialog();
-                this.Close();
+                try { m.ShowDialog(); }
+                catch (ObjectDisposedException ex2) { Console.WriteLine(ex2.Message); }
+                finally { this.Close(); }
             }
             finally { conn.Close(); }
 
@@ -85,16 +86,18 @@ namespace Mail_Box
         {
             this.Hide();
             Main m = new Main();
-            m.ShowDialog();
-            this.Close();
+            try { m.ShowDialog(); }
+            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+            finally { this.Close(); }
         }
 
         private void Logout_B_Click(object sender, EventArgs e)
         {
             this.Hide();
             Login lg = new Login();
-            lg.ShowDialog();
-            this.Close();
+            try { lg.ShowDialog(); }
+            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+            finally { this.Close(); }
         }
 
         private void Exit_B_Click(object sender, EventArgs e)
@@ -147,8 +150,9 @@ namespace Mail_Box
                             MessageBox.Show("your message added to sent trash.");
                             this.Hide();
                             Sent i = new Sent();
-                            i.ShowDialog();
-                            this.Close();
+                            try { i.ShowDialog(); }
+                            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                            finally { this.Close(); }
                             break;
                         default:
                             break;
@@ -164,8 +168,9 @@ namespace Mail_Box
                     string mid = Sent_DGV.Rows[e.RowIndex].Cells[3].Value.ToString();
                     this.Hide();
                     Forward f = new Forward(mid);
-                    f.ShowDialog();
-                    this.Close();
+                    try { f.ShowDialog(); }
+                    catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                    finally { this.Close(); }
                 }
                 catch (ArgumentOutOfRangeException ex) { Console.WriteLine(ex.Message); }
             }

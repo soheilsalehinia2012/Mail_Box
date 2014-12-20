@@ -55,16 +55,18 @@ namespace Mail_Box
         {
             this.Hide();
             Main m = new Main();
-            m.ShowDialog();
-            this.Close();
+            try { m.ShowDialog(); }
+            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+            finally { this.Close(); }
         }
 
         private void Logout_B_Click(object sender, EventArgs e)
         {
             this.Hide();
             Login lg = new Login();
-            lg.ShowDialog();
-            this.Close();
+            try { lg.ShowDialog(); }
+            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+            finally { this.Close(); }
         }
         private void showComboBox() {
             SqlConnection conn = new SqlConnection(Global.connectionString);
@@ -191,7 +193,7 @@ namespace Mail_Box
                                 if (size2 != -1)
                                     cmd.Parameters.AddWithValue("@size2", size2);
                                 if (size3 != -1)
-                                    cmd.Parameters.AddWithValue("@size2", size2);
+                                    cmd.Parameters.AddWithValue("@size3", size3);
                                 cmd.ExecuteNonQuery();
 
                             }
@@ -202,8 +204,9 @@ namespace Mail_Box
                                 MessageBox.Show("Message successfully sent!");
                                 this.Hide();
                                 Compose c = new Compose();
-                                c.ShowDialog();
-                                this.Close();
+                                try { c.ShowDialog(); }
+                                catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                                finally { this.Close(); }
                             }
                             break;
                         default:
@@ -241,7 +244,7 @@ namespace Mail_Box
                         if (size2 != -1)
                             cmd.Parameters.AddWithValue("@size2", size2);
                         if (size3 != -1)
-                            cmd.Parameters.AddWithValue("@size2", size2);
+                            cmd.Parameters.AddWithValue("@size3", size3);
                         cmd.ExecuteNonQuery();
 
                     }
@@ -252,8 +255,9 @@ namespace Mail_Box
                         MessageBox.Show("Message successfully sent!");
                         this.Hide();
                         Compose c = new Compose();
-                        c.ShowDialog();
-                        this.Close();
+                        try { c.ShowDialog(); }
+                        catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                        finally { this.Close(); }
                     }
                 }
             }

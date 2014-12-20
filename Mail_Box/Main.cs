@@ -19,6 +19,10 @@ namespace Mail_Box
             Welcome_L.Text = "Welcome\n\"" + Global.loginUser + 
                 "\"\n"+ "you have " + unreadCount() + "\nunread messages\nin your inbox";
             this.StartPosition = FormStartPosition.CenterScreen;
+            if (Global.loginUser == "admin") {
+                allMessages_B.Visible = true;
+                allUsers_B.Visible = true;
+            }
         }
 
         private void Logout_B_Click(object sender, EventArgs e)
@@ -99,6 +103,21 @@ namespace Mail_Box
             try { i.ShowDialog(); }
             catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
             finally { this.Close(); }
+        }
+
+        private void allMessages_B_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void allUsers_B_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profile_B_Click(object sender, EventArgs e)
+        {
+
         }
                         
     }

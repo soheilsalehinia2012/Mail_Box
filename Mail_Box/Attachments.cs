@@ -69,15 +69,33 @@ namespace Mail_Box
                 {
                     this.Hide();
                     Inbox i = new Inbox();
-                    i.ShowDialog();
-                    this.Close();
+                    try { i.ShowDialog(); }
+                    catch (ObjectDisposedException ex2) { Console.WriteLine(ex2.Message); }
+                    finally { this.Close(); }
                 }
                 if (type == 2)
                 {
                     this.Hide();
                     Sent s = new Sent();
-                    s.ShowDialog();
-                    this.Close();
+                    try { s.ShowDialog(); }
+                    catch (ObjectDisposedException ex2) { Console.WriteLine(ex2.Message); }
+                    finally { this.Close(); }
+                }
+                if (type == 3)
+                {
+                    this.Hide();
+                    Inbox_Trash s = new Inbox_Trash();
+                    try { s.ShowDialog(); }
+                    catch (ObjectDisposedException ex2) { Console.WriteLine(ex2.Message); }
+                    finally { this.Close(); }
+                }
+                if (type == 4)
+                {
+                    this.Hide();
+                    Sent_Trash s = new Sent_Trash();
+                    try { s.ShowDialog(); }
+                    catch (ObjectDisposedException ex2) { Console.WriteLine(ex2.Message); }
+                    finally { this.Close(); }
                 }
             }
             finally { conn.Close(); }
@@ -91,15 +109,33 @@ namespace Mail_Box
             {
                 this.Hide();
                 Inbox i = new Inbox();
-                i.ShowDialog();
-                this.Close();
+                try { i.ShowDialog(); }
+                catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                finally { this.Close(); }
             }
             if (type == 2)
             {
                 this.Hide();
                 Sent i = new Sent();
-                i.ShowDialog();
-                this.Close();
+                try { i.ShowDialog(); }
+                catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                finally { this.Close(); }
+            }
+            if (type == 3)
+            {
+                this.Hide();
+                Inbox_Trash s = new Inbox_Trash();
+                try { s.ShowDialog(); }
+                catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                finally { this.Close(); }
+            }
+            if (type == 4)
+            {
+                this.Hide();
+                Sent_Trash s = new Sent_Trash();
+                try { s.ShowDialog(); }
+                catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                finally { this.Close(); }
             }
         }
 
@@ -107,8 +143,9 @@ namespace Mail_Box
         {
             this.Hide();
             Login lg = new Login();
-            lg.ShowDialog();
-            this.Close();
+            try { lg.ShowDialog(); }
+            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+            finally { this.Close(); }
         }
 
         private void exit_B_Click(object sender, EventArgs e)

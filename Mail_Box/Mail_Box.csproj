@@ -57,11 +57,11 @@
     <Compile Include="Compose.Designer.cs">
       <DependentUpon>Compose.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Forward.cs">
       <SubType>Form</SubType>
@@ -128,8 +128,8 @@
     <EmbeddedResource Include="Compose.resx">
       <DependentUpon>Compose.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forward.resx">
       <DependentUpon>Forward.cs</DependentUpon>
@@ -139,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inbox.resx">
       <DependentUpon>Inbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inbox_Trash.resx">
+      <DependentUpon>Inbox_Trash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -157,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sent.resx">
       <DependentUpon>Sent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sent_Trash.resx">
+      <DependentUpon>Sent_Trash.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Mail_BoxDataSet.xsc">
       <DependentUpon>Mail_BoxDataSet.xsd</DependentUpon>

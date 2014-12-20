@@ -66,8 +66,6 @@ namespace Mail_Box
 
                 Inbox_DGV.Width = Inbox_DGV.Columns.Cast<DataGridViewColumn>().Sum(x => x.Width)
                         + (Inbox_DGV.RowHeadersVisible ? Inbox_DGV.RowHeadersWidth : 0) -95;
-                //Inbox_DGV.Height = Inbox_DGV.Rows.Cast<DataGridViewRow>().Sum(x => x.Height)
-                          //  + (Inbox_DGV.ColumnHeadersVisible ? Inbox_DGV.ColumnHeadersHeight : 0) + 3;
                 Inbox_DGV.Columns[0].Visible = false;
             }
             catch (SqlException ex) { Console.WriteLine(ex.Message); }
@@ -76,8 +74,9 @@ namespace Mail_Box
                 MessageBox.Show("your inbox is empty!!!","Empty Inbox");
                 this.Hide();
                 Main m = new Main();
-                m.ShowDialog();
-                this.Close();
+                try { m.ShowDialog(); }
+                catch (ObjectDisposedException ex2) { Console.WriteLine(ex2.Message); }
+                finally { this.Close(); }
             }
             finally { conn.Close(); }
 
@@ -123,8 +122,9 @@ namespace Mail_Box
                             MessageBox.Show("your message added to inbox trash.");
                             this.Hide();
                             Inbox i = new Inbox();
-                            i.ShowDialog();
-                            this.Close();
+                            try { i.ShowDialog(); }
+                            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                            finally { this.Close(); }
                             break;
                         default:
                             break;
@@ -160,8 +160,9 @@ namespace Mail_Box
                     string subject = Inbox_DGV.Rows[e.RowIndex].Cells[6].Value.ToString();
                     this.Hide();
                     Forward_Reply fr = new Forward_Reply(mid, senderuser, subject);
-                    fr.ShowDialog();
-                    this.Close();
+                    try { fr.ShowDialog(); }
+                    catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+                    finally { this.Close(); }
                 }
                 catch (ArgumentOutOfRangeException ex) { Console.WriteLine(ex.Message); }
             }
@@ -172,16 +173,18 @@ namespace Mail_Box
         {
             this.Hide();
             Main m = new Main();
-            m.ShowDialog();
-            this.Close();
+            try { m.ShowDialog(); }
+            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+            finally { this.Close(); }
         }
 
         private void Logout_B_Click(object sender, EventArgs e)
         {
             this.Hide();
             Login lg = new Login();
-            lg.ShowDialog();
-            this.Close();
+            try { lg.ShowDialog(); }
+            catch (ObjectDisposedException ex) { Console.WriteLine(ex.Message); }
+            finally { this.Close(); }
         }
 
         private void Exit_B_Click(object sender, EventArgs e)
@@ -253,6 +256,10 @@ namespace Mail_Box
                     DataTable dt = new DataTable();
                     dt.Load(reader);
                     Inbox_DGV.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("There is no unread message in your inbox!!!");
                 }
             }
             catch (SqlException ex) { Console.WriteLine(ex.Message); }
